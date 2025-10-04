@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -33,3 +34,14 @@ function App() {
 }
 
 export default App
+=======
+function App() {
+  return (
+    <>
+      <div>Zenova </div>
+    </>
+  );
+}
+
+export default App;
+>>>>>>> 0586306e9082e71b0e12d8dbe5b6dea10b83cb12
