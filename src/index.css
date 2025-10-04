@@ -1,68 +1,199 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+    color: #535bf2;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.Card-Image {
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.Card-Image {
+    width: 240px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.171),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 6px 3px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: Card-transformation 0.5s ease-in;
+    z-index: 10;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.Card-Image img {
+     animation: Card-image-animetion 0.6s;
+     border: 1px solid gray;
+}
+@keyframes Card-image-animetion {
+    from {
+        transform: scale(0.1);
+       visibility: hidden;
+       opacity: 0;
+    }
+    to {
+         transform: scale(1);
+       visibility: visible;
+       opacity: 1;
+    }
+}
+
+
+@keyframes Card-transformation {
+    from {
+        transform: skew(-20deg, -20deg);
+        height: 0px;
+    }
+
+    to {
+        transform: skew(0deg, 0deg);
+        height: 360px;
+    }
+}
+
+
+.card-background {
+    background-color: #03fe86;
+    width: 70%;
+    position: absolute;
+    height: 110%;
+    transform: translate(-50%, -50%) skew(-10deg);
+    border-radius: 10px;
+    border: 1px solid rgba(250, 108, 108, 0.205);
+    box-shadow: 0px 0px 10px #79f5b9, 0px 0px 20px #03fe86, 0px 0px 40px #37f599, inset 0px 0px 30px #35f89a, inset 0px 0px 10px #69f0ae;
+    top: 50%;
+    z-index: 0;
+    left: 50%;
+    animation: card-background-animetion 1s;
+    transition: 0.5s;
+}
+
+@keyframes card-background-animetion {
+    from {
+        transform: translate(-50%, -50%) skew(60deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) skew(-10deg);
+    }
+}
+
+.Card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    z-index: 3;
+    
+}
+
+
+.Card:hover .card-background {
+    transform: translate(-50%, -50%) skew(10deg);
+    background-color: #69ffb6;
+}
+.Card:hover img {
+    transform: scale(0.9) translate(0px ,-30px);
+}
+.Card:hover .card-content span{
+    height: 72px;
+    opacity: 1;
+}
+.Card:hover .card-content {
+    backdrop-filter: blur(5px);
+    background-color: #00000077;
+    color: #03fe85ad;
+     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5), 0px -10px 25px 10px rgba(0, 0, 0, 0.384);
+}
+.Card:hover .card-content p {
+    color: #03fe86;
+}
+.card-content {
+    position: absolute;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px white;
+    padding: 5px;
+    bottom: 15px;
+    left: 47%;
+    z-index: 10;
+    width: 80%;
+    transform: translate(-50%, 0%);
+    background-color: #03030300;
+    backdrop-filter: blur(0px);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card-content p {
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.card-content span {                   
+      display: -webkit-box;            
+      -webkit-line-clamp: 3;            
+      -webkit-box-orient: vertical;    
+      overflow: hidden;                
+      text-overflow: ellipsis;          
+      white-space: normal; 
+      opacity: 0;
+      height: 0px;  
+      transition: 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.438);
+      padding: 5px;
+      border-radius: 10px;
+}
+.cardReaction {
+    position: absolute;
+    top:40px;
+    left: 0px;
+    opacity: 0;
+    transition: 0.3s;
+}
+.Card-follow {
+     position: absolute;
+    top:120px;
+    left: 0px;
+    opacity: 0;
+    transition: 0.6s;
+}
+.Card:hover .cardReaction ,.Card:hover .Card-follow{
+    left: -50px;
+    opacity: 1;
 }
