@@ -9,7 +9,11 @@ function App() {
 
   return (
     <>
+    <div className='test'>
       <Card />
+      <Card />
+      <Card />
+      </div>
     </>
   )
 }
