@@ -1,79 +1,68 @@
-@import "tailwindcss";
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-.Chat-bg {
-  background-image: url(./assets/Zenova.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
-.Chat-Person--placeholder {
-  backdrop-filter: blur(10px);
-}
-
-.Chat--Chat-placeholder {
-  backdrop-filter: blur(5px);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.Chat--chat-input {
-  backdrop-filter: blur(10px);
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
-.Chat--chat-list {
-
-  background: rgba(3, 254, 134, 0.31);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12.7px);
-  -webkit-backdrop-filter: blur(12.7px);
-  border: 1px solid rgba(3, 254, 134, 0.68);
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-.Chat--chat-list {
-  background: rgba(0, 0, 0, 0.267);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 0px 20px 20px 0px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-.ChatSendBy-- {
-  background-color: #0005;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  box-shadow: inset 0px 0px 5px white;
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
-.Chat-chatrow-placeholder {
-   background: linear-gradient(135deg,
-      #03fe8500 0%,
-      /* Neon green highlight */
-      #029e6200 25%,
-      /* Deep emerald */
-      #014d3600 60%,
-      /* Dark forest green */
-      #00140c00 100%
-      /* Almost black */
-    );
+button:hover {
+  border-color: #646cff;
 }
-.Chat-chatrow-placeholder:hover {
-  background: linear-gradient(135deg,
-      #03fe86 0%,
-      /* Neon green highlight */
-      #029e63 25%,
-      /* Deep emerald */
-      #014d36 60%,
-      /* Dark forest green */
-      #00140c 100%
-      /* Almost black */
-    );
-  background-size: 100% 200%;
-  animation: MovingGradientChat 0.5s ease-in;
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
-@keyframes MovingGradientChat {
-  from {
-    background-position: 100% 0;
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
-  to {
-    background-position: 100% 200%;
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
   }
 }
