@@ -6,10 +6,10 @@ function ChatAppBody() {
       <ChatListPanel />
       <ChatWindow />
       <div className="w-1/4 bg-slate-800 border-l border-slate-700 p-6 flex flex-col items-center">
-        <div className="text-center">
+        <div className="text-center flex flex-col items-center">
           <img
-            src="https://via.placeholder.com/80"
-            className="w-20 h-20 rounded-full mb-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7s8jgunlzu9RHZlpQDsmht3vHqCYFmWk4eg&s"
+            className="w-20 h-20 rounded-full mb-2 object-cover"
             alt=""
           />
           <h4 className="font-semibold">Alen Santos</h4>

@@ -8,7 +8,7 @@ function ChatInput() {
           className="flex-1 bg-slate-700 rounded-full px-4 py-2 text-sm focus:outline-none"
         />
         <button className="bg-indigo-600 hover:bg-indigo-700 w-10 h-10 rounded-full flex items-center justify-center">
-          ➤
+          <span>➤</span>
         </button>
       </div>
     </>

@@ -1,68 +1,341 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.Chat-bg {
+  background-image: url(./assets/Zenova.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body {
-  margin: 0;
+.Chat-Person--placeholder {
+  backdrop-filter: blur(10px);
+}
+
+.Chat--Chat-placeholder {
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+.Chat--chat-input {
+  backdrop-filter: blur(10px);
+}
+
+.Chat--chat-list {
+
+  background: rgba(3, 254, 134, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.7px);
+  -webkit-backdrop-filter: blur(12.7px);
+  border: 1px solid rgba(3, 254, 134, 0.68);
+}
+
+.Chat--chat-list {
+  background: rgba(0, 0, 0, 0.267);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0px 20px 20px 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ChatSendBy-- {
+  background-color: #0005;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: inset 0px 0px 5px white;
+  animation: ChatSendBy-tranformation 0.4s ease-out;
+
+}
+
+.ChatSendBy--,
+.ChatSendTo-- {
+  max-width: 400px;
+}
+
+.ChatSendTo-- {
+  animation: ChatSendTo-tranformation 0.4s ease-out;
+}
+
+@keyframes ChatSendTo-tranformation {
+  from {
+    opacity: 0;
+    transform: translate(500px, 50px) skew(-30deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px) skew(0deg);
+  }
+}
+
+@keyframes ChatSendBy-tranformation {
+  from {
+    opacity: 0;
+    transform: translate(-500px, -50px) skew(30deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px) skew(0deg);
+  }
+}
+
+.Chat-chatrow-placeholder {
+  background: linear-gradient(135deg,
+      #03fe8500 0%,
+      /* Neon green highlight */
+      #029e6200 25%,
+      /* Deep emerald */
+      #014d3600 60%,
+      /* Dark forest green */
+      #00140c00 100%
+      /* Almost black */
+    );
+  border-radius: 0px 0px 10px 10px;
+}
+
+.Chat-chatrow-placeholder:hover {
+  background: linear-gradient(135deg,
+      #03fe86 0%,
+
+      #029e63 25%,
+
+      #014d36 60%,
+
+      #00140c 100%);
+  background-size: 200% 200%;
+  animation: MovingGradientChat 0.5s ease-in-out;
+  transition: 0.2s;
+}
+
+@keyframes MovingGradientChat {
+  from {
+    background-position: 100% 200%;
+  }
+
+  to {
+    background-position: 200% 200%;
+  }
+}
+.Chat--chat-input button span{
+  transition: 0.3s;
+  position: relative;
+}
+.Chat--chat-input button span::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+}
+.Chat--chat-input button:hover  span, .Chat--chat-input button:hover span::before{
+  transform: rotate(360deg) translate(10px);
+  content: '⁐=';
+}
+
+/* CARD DEGIN */
+.Card-Image {
+  width: 200px;
+  height: 300px;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.Card-Image {
+  width: 240px;
+  height: 360px;
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.171),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 6px 3px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: Card-transformation 0.5s ease-in;
+  z-index: 10;
+}
+
+.Card-Image img {
+  animation: Card-image-animetion 0.6s;
+  border: 1px solid gray;
+}
+
+@keyframes Card-image-animetion {
+  from {
+    transform: scale(0.1);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+@keyframes Card-transformation {
+  from {
+    transform: skew(-20deg, -20deg);
+    height: 0px;
+  }
+
+  to {
+    transform: skew(0deg, 0deg);
+    height: 360px;
+  }
+}
+
+
+.card-background {
+  background-color: #03fe86;
+  width: 70%;
+  position: absolute;
+  height: 110%;
+  transform: translate(-50%, -50%) skew(-10deg);
+  border-radius: 10px;
+  border: 1px solid rgba(250, 108, 108, 0.205);
+  box-shadow: 0px 0px 10px #79f5b9, 0px 0px 20px #03fe86, 0px 0px 40px #37f599, inset 0px 0px 30px #35f89a, inset 0px 0px 10px #69f0ae;
+  top: 50%;
+  z-index: 0;
+  left: 50%;
+  animation: card-background-animetion 1s;
+  transition: 0.5s;
+}
+
+@keyframes card-background-animetion {
+  from {
+    transform: translate(-50%, -50%) skew(30deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) skew(-10deg);
+  }
+}
+
+.Card {
+  position: relative;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  margin: 30px;
+  z-index: 3;
+  height: fit-content;
+  width: fit-content;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+
+.Card:hover .card-background {
+  transform: translate(-50%, -50%) skew(10deg);
+  background-color: #69ffb6;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.Card:hover img {
+  transform: scale(0.9) translate(0px, -30px);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.Card:hover .card-content span {
+  height: 72px;
+  opacity: 1;
+}
+
+.Card:hover .card-content {
+  text-align: left;
+  backdrop-filter: blur(5px);
+  background-color: #00000077;
+  color: #03fe85ad;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5), 0px -10px 25px 10px rgba(0, 0, 0, 0.384);
+}
+
+.Card:hover .card-content p {
+  color: #03fe86;
+}
+
+.card-content {
+  position: absolute;
+  color: #ffffff;
+  text-shadow: 0px 0px 10px white;
+  padding: 5px;
+  bottom: 10px;
+  left: 50%;
+  z-index: 10;
+  width: 80%;
+  transform: translate(-50%, 0%);
+  background-color: #03030300;
+  backdrop-filter: blur(0px);
+  border-radius: 10px;
+  transition: 0.3s;
+  animation: card-content-animetion 2s;
+  text-align: center;
+}
+
+@keyframes card-content-animetion {
+  from {
+    opacity: 0;
+
   }
-  a:hover {
-    color: #747bff;
+
+  to {
+    opacity: 1;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+.card-content p {
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.card-content span {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  opacity: 0;
+  height: 0px;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.438);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.cardReaction {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.Card-follow {
+  position: absolute;
+  top: 120px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.Card:hover .cardReaction,
+.Card:hover .Card-follow {
+  left: -50px;
+  opacity: 1;
+}
+
+.test {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.cardReaction:hover,
+.Card-follow:hover {
+  transform: scale(1.1);
 }
